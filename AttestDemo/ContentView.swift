@@ -10,19 +10,18 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query private var items: [Post]
+    @State private var showCameraView = false
 
     var body: some View {
         NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+            ScrollView {
+                VStack(spacing: 16) {
+                    ForEach(items) { post in
+                        PostView(post: post)
                     }
+                    .onDelete(perform: deleteItems)
                 }
-                .onDelete(perform: deleteItems)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -34,6 +33,10 @@ struct ContentView: View {
                     }
                 }
             }
+            .floatingButton(showCameraView: $showCameraView)
+            .fullScreenCover(isPresented: $showCameraView) {
+                FullScreenCameraView()
+            }
         } detail: {
             Text("Select an item")
         }
@@ -41,7 +44,7 @@ struct ContentView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(timestamp: Date())
+            let newItem = Post.example
             modelContext.insert(newItem)
         }
     }
@@ -57,5 +60,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: Post.self, inMemory: true)
 }

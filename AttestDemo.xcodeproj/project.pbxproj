@@ -7,20 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D807F9F82BFB33AE00F3FA48 /* FloatingCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9F72BFB33AE00F3FA48 /* FloatingCameraButton.swift */; };
+		D807F9FA2BFB345800F3FA48 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9F92BFB345800F3FA48 /* CameraView.swift */; };
+		D807F9FC2BFB3CBC00F3FA48 /* AppAttestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9FB2BFB3CBC00F3FA48 /* AppAttestManager.swift */; };
+		D807FA002BFB49B800F3FA48 /* AuthenticityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9FF2BFB49B800F3FA48 /* AuthenticityManager.swift */; };
+		D807FA022BFB4A0600F3FA48 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807FA012BFB4A0600F3FA48 /* Persistence.swift */; };
+		D807FA042BFB4B7500F3FA48 /* MultipartFormDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807FA032BFB4B7400F3FA48 /* MultipartFormDataRequest.swift */; };
+		D807FA062BFB4CCD00F3FA48 /* LocationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807FA052BFB4CCD00F3FA48 /* LocationServices.swift */; };
 		D87AD9112BFB261A00EB508D /* AttestDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87AD9102BFB261A00EB508D /* AttestDemoApp.swift */; };
 		D87AD9132BFB261A00EB508D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87AD9122BFB261A00EB508D /* ContentView.swift */; };
-		D87AD9152BFB261A00EB508D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87AD9142BFB261A00EB508D /* Item.swift */; };
+		D87AD9152BFB261A00EB508D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87AD9142BFB261A00EB508D /* Post.swift */; };
 		D87AD9172BFB261D00EB508D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87AD9162BFB261D00EB508D /* Assets.xcassets */; };
 		D87AD91A2BFB261D00EB508D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87AD9192BFB261D00EB508D /* Preview Assets.xcassets */; };
+		D87AD9212BFB2C5800EB508D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87AD9202BFB2C5800EB508D /* PostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D807F9F72BFB33AE00F3FA48 /* FloatingCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingCameraButton.swift; sourceTree = "<group>"; };
+		D807F9F92BFB345800F3FA48 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		D807F9FB2BFB3CBC00F3FA48 /* AppAttestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttestManager.swift; sourceTree = "<group>"; };
+		D807F9FD2BFB3E0400F3FA48 /* AttestDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AttestDemo.entitlements; sourceTree = "<group>"; };
+		D807F9FE2BFB3EB000F3FA48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D807F9FF2BFB49B800F3FA48 /* AuthenticityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticityManager.swift; sourceTree = "<group>"; };
+		D807FA012BFB4A0600F3FA48 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		D807FA032BFB4B7400F3FA48 /* MultipartFormDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataRequest.swift; sourceTree = "<group>"; };
+		D807FA052BFB4CCD00F3FA48 /* LocationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServices.swift; sourceTree = "<group>"; };
 		D87AD90D2BFB261A00EB508D /* AttestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D87AD9102BFB261A00EB508D /* AttestDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestDemoApp.swift; sourceTree = "<group>"; };
 		D87AD9122BFB261A00EB508D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D87AD9142BFB261A00EB508D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		D87AD9142BFB261A00EB508D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D87AD9162BFB261D00EB508D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D87AD9192BFB261D00EB508D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D87AD9202BFB2C5800EB508D /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +71,19 @@
 		D87AD90F2BFB261A00EB508D /* AttestDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D807F9FE2BFB3EB000F3FA48 /* Info.plist */,
+				D807F9FD2BFB3E0400F3FA48 /* AttestDemo.entitlements */,
+				D807FA052BFB4CCD00F3FA48 /* LocationServices.swift */,
 				D87AD9102BFB261A00EB508D /* AttestDemoApp.swift */,
+				D807F9FB2BFB3CBC00F3FA48 /* AppAttestManager.swift */,
+				D807FA012BFB4A0600F3FA48 /* Persistence.swift */,
+				D807F9FF2BFB49B800F3FA48 /* AuthenticityManager.swift */,
+				D807FA032BFB4B7400F3FA48 /* MultipartFormDataRequest.swift */,
 				D87AD9122BFB261A00EB508D /* ContentView.swift */,
-				D87AD9142BFB261A00EB508D /* Item.swift */,
+				D807F9F92BFB345800F3FA48 /* CameraView.swift */,
+				D807F9F72BFB33AE00F3FA48 /* FloatingCameraButton.swift */,
+				D87AD9202BFB2C5800EB508D /* PostView.swift */,
+				D87AD9142BFB261A00EB508D /* Post.swift */,
 				D87AD9162BFB261D00EB508D /* Assets.xcassets */,
 				D87AD9182BFB261D00EB508D /* Preview Content */,
 			);
@@ -140,8 +168,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D807FA062BFB4CCD00F3FA48 /* LocationServices.swift in Sources */,
+				D807FA022BFB4A0600F3FA48 /* Persistence.swift in Sources */,
+				D807F9F82BFB33AE00F3FA48 /* FloatingCameraButton.swift in Sources */,
 				D87AD9132BFB261A00EB508D /* ContentView.swift in Sources */,
-				D87AD9152BFB261A00EB508D /* Item.swift in Sources */,
+				D807FA002BFB49B800F3FA48 /* AuthenticityManager.swift in Sources */,
+				D87AD9152BFB261A00EB508D /* Post.swift in Sources */,
+				D807F9FA2BFB345800F3FA48 /* CameraView.swift in Sources */,
+				D807FA042BFB4B7500F3FA48 /* MultipartFormDataRequest.swift in Sources */,
+				D87AD9212BFB2C5800EB508D /* PostView.swift in Sources */,
+				D807F9FC2BFB3CBC00F3FA48 /* AppAttestManager.swift in Sources */,
 				D87AD9112BFB261A00EB508D /* AttestDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,17 +309,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AttestDemo/AttestDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AttestDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = 2LN5P9FL67;
+				DEVELOPMENT_TEAM = JS2NN5XX7S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AttestDemo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Honto;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Gotta use the camera to take pics!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -291,9 +333,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.pse.AttestDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -302,17 +348,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AttestDemo/AttestDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AttestDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = 2LN5P9FL67;
+				DEVELOPMENT_TEAM = JS2NN5XX7S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AttestDemo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Honto;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Gotta use the camera to take pics!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +372,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.pse.AttestDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

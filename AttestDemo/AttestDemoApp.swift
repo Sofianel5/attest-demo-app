@@ -7,12 +7,14 @@
 
 import SwiftUI
 import SwiftData
+import AVFoundation
+import CoreLocation
 
 @main
 struct AttestDemoApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Post.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -22,10 +24,31 @@ struct AttestDemoApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    func requestLocationPermission() {
+        let locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func requestCameraPermission() {
+        AVCaptureDevice.requestAccess(for: .video) { granted in
+            if granted {
+                print("Camera access granted.")
+            } else {
+                print("Camera access denied.")
+            }
+        }
+    }
+    
+    func performSetupTasksIfNeeded() {
+        requestLocationPermission()
+        requestCameraPermission()
+    }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear(perform: performSetupTasksIfNeeded)
         }
         .modelContainer(sharedModelContainer)
     }
