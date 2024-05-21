@@ -12,6 +12,7 @@ class CameraViewController: UIViewController {
     var captureSession: AVCaptureSession?
     var photoOutput: AVCapturePhotoOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
+    var onPhotoCaptured: ((Data) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,6 @@ class CameraViewController: UIViewController {
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 if let previewLayer = previewLayer {
                     previewLayer.videoGravity = .resizeAspectFill
-                    previewLayer.connection?.videoRotationAngle = .zero
                     view.layer.addSublayer(previewLayer)
                     previewLayer.frame = view.frame
                     
@@ -51,6 +51,7 @@ class CameraViewController: UIViewController {
     
     func takePhoto() {
         let settings = AVCapturePhotoSettings()
+        print("taking photo")
         photoOutput?.capturePhoto(with: settings, delegate: self)
     }
 }
@@ -58,10 +59,8 @@ class CameraViewController: UIViewController {
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard let imageData = photo.fileDataRepresentation() else { return }
-        let image = UIImage(data: imageData)
-        
-        // Handle the captured image (e.g., save it, use it in a post, etc.)
-        print("Photo captured: \(String(describing: image))")
+        print("Photo captured")
+        onPhotoCaptured?(imageData)
     }
 }
 
@@ -74,21 +73,26 @@ struct CameraView: UIViewControllerRepresentable {
         }
         
         @objc func takePhoto() {
-            parent.cameraViewController?.takePhoto()
+            print("taking photos")
+            parent.cameraViewController.takePhoto()
         }
     }
     
-    var cameraViewController: CameraViewController?
+    var cameraViewController: CameraViewController
+    var onPhotoCaptured: ((Data) -> Void)
+    
+    init(cameraViewController: CameraViewController, onPhotoCaptured: @escaping ( (Data) -> Void)) {
+        self.cameraViewController = cameraViewController
+        self.onPhotoCaptured = onPhotoCaptured
+    }
     
     func makeCoordinator() -> Coordinator {
         return Coordinator(parent: self)
     }
     
     func makeUIViewController(context: Context) -> CameraViewController {
-        let viewController = CameraViewController()
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.takePhoto))
-        viewController.view.addGestureRecognizer(tapGestureRecognizer)
+        let viewController = self.cameraViewController
+        viewController.onPhotoCaptured = onPhotoCaptured
         
         return viewController
     }
@@ -99,11 +103,43 @@ struct CameraView: UIViewControllerRepresentable {
 
 struct FullScreenCameraView: View {
     @Environment(\.presentationMode) var presentationMode
+    let cameraViewController = CameraViewController()
+    
+    func sendPhotoToServer(_ image: Data) {
+        // Your code to send the image to the server
+        // For example, using URLSession to send a POST request with the image data
+        print("Sending photo to server...")
+
+        guard let url = URL(string: "https://appattest-demo.onrender.com/upload") else { return }
+        let request = MultipartFormDataRequest(url: url)
+        request.addDataField(
+            named: "image",
+            data: image,
+            mimeType: "img/jpeg"
+        )
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error uploading photo: \(error)")
+                presentationMode.wrappedValue.dismiss()
+                return
+            }
+            if let response = response as? HTTPURLResponse, response.statusCode == 200 {
+                print("Photo uploaded successfully!")
+                DispatchQueue.main.async {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            }
+        }
+
+        task.resume()
+    }
     
     var body: some View {
         ZStack {
-            CameraView()
-                .edgesIgnoringSafeArea(.all)
+            CameraView(cameraViewController: cameraViewController, onPhotoCaptured: {
+                image in sendPhotoToServer(image)
+            })
+            .edgesIgnoringSafeArea(.all)
             
             VStack {
                 HStack {
@@ -128,6 +164,8 @@ struct FullScreenCameraView: View {
                 
                 Button(action: {
                     // Handle photo taking action
+                    cameraViewController.takePhoto()
+                    
                 }) {
                     Circle()
                         .frame(width: 70, height: 70)
@@ -148,10 +186,4 @@ struct FullScreenCameraView_Previews: PreviewProvider {
     static var previews: some View {
         FullScreenCameraView()
     }
-}
-
-
-
-#Preview {
-    CameraView()
 }
