@@ -9,7 +9,7 @@ import Foundation
 
 class AuthenticityManager {
     
-    private let appAttestManager = AppAttestManager.shared;
+//    private let appAttestManager = AppAttestManager.shared;
     private let persistenceManager = PersistenceController.shared;
     
     static let shared = AuthenticityManager();
