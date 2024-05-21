@@ -7,6 +7,7 @@
 
 import Foundation
 import DeviceCheck
+import CryptoKit
 
 class AppAttestManager {
     
@@ -16,7 +17,7 @@ class AppAttestManager {
     private var attestation: Data?;
     private let service = DCAppAttestService.shared
     
-    init() {
+    func keyGen(callBack: @escaping (String) -> Void) {
         if service.isSupported {
             // Perform key generation and attestation.
             service.generateKey { keyId, error in
@@ -26,23 +27,27 @@ class AppAttestManager {
                     return
                 }
                 self.keyId = keyId!;
+                callBack(keyId!)
             }
         } else {
             print("appattest service not supported")
         }
     }
     
-    func isReady() -> Bool {
-        return self.keyId != nil;
-    }
-    
-    func attestKey(hash: Data, callBack: @escaping (Data) -> Void) {
+    func attestKey(challenge: Data, callBack: @escaping (Data) -> Void) {
         if let keyId {
+            let hash = Data(SHA256.hash(data: challenge))
+            print("Attempting to attest keyId: \(keyId), clientDataHash: \(hash)")
             service.attestKey(keyId, clientDataHash: hash) { attestation, error in
-                guard error == nil else { return }
+                guard error == nil else {
+                    print("service.attestKey error: \(error!)")
+                    return
+                }
                 self.attestation = attestation
                 callBack(attestation!)
             }
+        } else {
+            print("AppAttestManager.attestKey: keyId nil")
         }
     }
     

@@ -20,6 +20,7 @@
 		D87AD9172BFB261D00EB508D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87AD9162BFB261D00EB508D /* Assets.xcassets */; };
 		D87AD91A2BFB261D00EB508D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87AD9192BFB261D00EB508D /* Preview Assets.xcassets */; };
 		D87AD9212BFB2C5800EB508D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87AD9202BFB2C5800EB508D /* PostView.swift */; };
+		D8DD580C2BFC841800001F3C /* JsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DD580B2BFC841800001F3C /* JsonRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		D87AD9162BFB261D00EB508D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D87AD9192BFB261D00EB508D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D87AD9202BFB2C5800EB508D /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		D8DD580B2BFC841800001F3C /* JsonRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				D807FA012BFB4A0600F3FA48 /* Persistence.swift */,
 				D807F9FF2BFB49B800F3FA48 /* AuthenticityManager.swift */,
 				D807FA032BFB4B7400F3FA48 /* MultipartFormDataRequest.swift */,
+				D8DD580B2BFC841800001F3C /* JsonRequest.swift */,
 				D87AD9122BFB261A00EB508D /* ContentView.swift */,
 				D807F9F92BFB345800F3FA48 /* CameraView.swift */,
 				D807F9F72BFB33AE00F3FA48 /* FloatingCameraButton.swift */,
@@ -179,6 +182,7 @@
 				D87AD9212BFB2C5800EB508D /* PostView.swift in Sources */,
 				D807F9FC2BFB3CBC00F3FA48 /* AppAttestManager.swift in Sources */,
 				D87AD9112BFB261A00EB508D /* AttestDemoApp.swift in Sources */,
+				D8DD580C2BFC841800001F3C /* JsonRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

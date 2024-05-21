@@ -43,6 +43,7 @@ struct AttestDemoApp: App {
     func performSetupTasksIfNeeded() {
         requestLocationPermission()
         requestCameraPermission()
+        AuthenticityManager.shared.setupIfNeeded()
     }
 
     var body: some Scene {
