@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		30790FB82BFCB2D4000E1D87 /* SecureEnclaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30790FB72BFCB2D4000E1D87 /* SecureEnclaveManager.swift */; };
+		30790FBA2BFD7FC2000E1D87 /* PostBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30790FB92BFD7FC2000E1D87 /* PostBackend.swift */; };
+		30790FBC2BFD8255000E1D87 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30790FBB2BFD8255000E1D87 /* LocationManager.swift */; };
 		D807F9F82BFB33AE00F3FA48 /* FloatingCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9F72BFB33AE00F3FA48 /* FloatingCameraButton.swift */; };
 		D807F9FA2BFB345800F3FA48 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9F92BFB345800F3FA48 /* CameraView.swift */; };
 		D807F9FC2BFB3CBC00F3FA48 /* AppAttestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9FB2BFB3CBC00F3FA48 /* AppAttestManager.swift */; };
@@ -25,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		30790FB72BFCB2D4000E1D87 /* SecureEnclaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureEnclaveManager.swift; sourceTree = "<group>"; };
+		30790FB92BFD7FC2000E1D87 /* PostBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBackend.swift; sourceTree = "<group>"; };
+		30790FBB2BFD8255000E1D87 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		D807F9F72BFB33AE00F3FA48 /* FloatingCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingCameraButton.swift; sourceTree = "<group>"; };
 		D807F9F92BFB345800F3FA48 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		D807F9FB2BFB3CBC00F3FA48 /* AppAttestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttestManager.swift; sourceTree = "<group>"; };
@@ -85,8 +89,10 @@
 				D807F9F92BFB345800F3FA48 /* CameraView.swift */,
 				D807F9F72BFB33AE00F3FA48 /* FloatingCameraButton.swift */,
 				30790FB72BFCB2D4000E1D87 /* SecureEnclaveManager.swift */,
+				30790FBB2BFD8255000E1D87 /* LocationManager.swift */,
 				D87AD9202BFB2C5800EB508D /* PostView.swift */,
 				D87AD9142BFB261A00EB508D /* Post.swift */,
+				30790FB92BFD7FC2000E1D87 /* PostBackend.swift */,
 				D87AD9162BFB261D00EB508D /* Assets.xcassets */,
 				D87AD9182BFB261D00EB508D /* Preview Content */,
 			);
@@ -175,11 +181,13 @@
 				30790FB82BFCB2D4000E1D87 /* SecureEnclaveManager.swift in Sources */,
 				D807F9F82BFB33AE00F3FA48 /* FloatingCameraButton.swift in Sources */,
 				D87AD9132BFB261A00EB508D /* ContentView.swift in Sources */,
+				30790FBA2BFD7FC2000E1D87 /* PostBackend.swift in Sources */,
 				D807FA002BFB49B800F3FA48 /* AuthenticityManager.swift in Sources */,
 				D87AD9152BFB261A00EB508D /* Post.swift in Sources */,
 				D807F9FA2BFB345800F3FA48 /* CameraView.swift in Sources */,
 				D807FA042BFB4B7500F3FA48 /* MultipartFormDataRequest.swift in Sources */,
 				D87AD9212BFB2C5800EB508D /* PostView.swift in Sources */,
+				30790FBC2BFD8255000E1D87 /* LocationManager.swift in Sources */,
 				D807F9FC2BFB3CBC00F3FA48 /* AppAttestManager.swift in Sources */,
 				D87AD9112BFB261A00EB508D /* AttestDemoApp.swift in Sources */,
 				D8DD580C2BFC841800001F3C /* JsonRequest.swift in Sources */,
