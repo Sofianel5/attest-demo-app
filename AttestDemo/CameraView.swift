@@ -67,7 +67,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         
         // Convert image data to image
         guard let image = UIImage(data: imageData) else { return }
-        if let jpegData = image.jpegData(compressionQuality: 1.0) {
+        if let jpegData = image.jpegData(compressionQuality: 0.5) {
             onPhotoCaptured?(jpegData)
         }
     }

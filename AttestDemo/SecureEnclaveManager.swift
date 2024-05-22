@@ -14,7 +14,7 @@ class SecureEnclaveManager {
     
     private let kAsymmetricSecAttrKeyType = kSecAttrKeyTypeECSECPrimeRandom
     private let kAsymmetricSecAttrKeySize = 256
-    private let tag = "com.proofpix.keys.mykey".data(using: .utf8)!
+    private let tag = "jp.pse.AttestDemo.keys.mykey".data(using: .utf8)!
     
     private var keyQuery: [String: Any] {
         return [kSecClass as String: kSecClassKey,

@@ -30,7 +30,7 @@ class AuthenticityManager {
                         let request = MultipartFormDataRequest(url: url)
                         request.addTextField(named: "attestaion", value: attestation.base64EncodedString())
                         URLSession.shared.dataTask(with: request, completionHandler: {data,response,error in
-                            print("Callback...")
+                            print("Callback...", String(describing: data))
                             if error != nil {
                                 print("Error!")
                                 return

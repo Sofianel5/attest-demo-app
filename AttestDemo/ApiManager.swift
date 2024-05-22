@@ -15,7 +15,7 @@ class ApiManager {
         static let SUBMIT_POST_URL: String = "https://appattest-demo.onrender.com/add"
     }
     
-    private func sendPhotoToServer(_ image: Data, timestamp: String, signature: String, pubkey: String, latitude: String, longitude: String) {
+    private func sendPhotoToServer(_ image: Data, timestamp: String, signature: String, attestation: String, pubkey: String, latitude: String, longitude: String) {
         // Your code to send the image to the server
         // For example, using URLSession to send a POST request with the image data
         print("Sending photo to server...")
@@ -30,7 +30,7 @@ class ApiManager {
         request.addTextField(named: "timestamp", value: timestamp)
         request.addTextField(named: "photo_signature", value: signature)
         request.addTextField(named: "poster_pubkey", value: pubkey)
-        request.addTextField(named: "poster_attest_proof", value: "temp")
+        request.addTextField(named: "poster_attest_proof", value: attestation)
         request.addTextField(named: "location_lat", value: latitude)
         request.addTextField(named: "location_long", value: longitude)
         
@@ -41,7 +41,9 @@ class ApiManager {
                 return
             }
             if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                print("Photo uploaded successfully!")
+                print("Photo uploaded successfully! Got: \(String(data: data!, encoding: .utf8) ?? "")")
+            } else {
+                print("Got response: \(String(describing: response))")
             }
         }
 
@@ -76,7 +78,7 @@ class ApiManager {
                     let pubkeyString = pubkeyData.base64EncodedString()
                     
                     // Send data
-                    sendPhotoToServer(jpegData, timestamp: dateString, signature: signatureString, pubkey: pubkeyString, latitude: String(lat), longitude: String(lng))
+                    sendPhotoToServer(jpegData, timestamp: dateString, signature: signatureString, attestation: attestationString, pubkey: pubkeyString, latitude: String(lat), longitude: String(lng))
                     
                 } else {
                     print("Error: Public key data is nil")

@@ -36,6 +36,7 @@ struct AttestDemoApp: App {
     }
     
     func performSetupTasksIfNeeded() {
+        SecureEnclaveManager.shared.generateAsymmetricKeyPairIfNeeded()
         LocationManager.shared.setup()
         requestCameraPermission()
         AuthenticityManager.shared.setupIfNeeded()
