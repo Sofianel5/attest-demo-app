@@ -106,6 +106,7 @@ class ApiManager {
                     let decodedData = try jsonDecoder.decode(ServerDataCollection.self, from: data!)
                     for obj in decodedData.post_data_objects {
                       let post = Post(from: obj)
+                        
                       modelContext.insert(post)
                     }
                 } catch {

@@ -19,8 +19,8 @@ class AuthenticityManager {
         AppAttestManager.shared.keyGen() {keyId in
             print("Got keyId: \(keyId)")
             let url = URL(string: "https://appattest-demo.onrender.com/challenge")!;
-            let request = MultipartFormDataRequest(url: url)
-            let task = URLSession.shared.dataTask(with: request) {data,response,error in
+//            let request = MultipartFormDataRequest(url: url)
+            let task = URLSession.shared.dataTask(with: url) {data,response,error in
                 if let challenge = data {
                     print("Got challenge: \(challenge)")
                     AppAttestManager.shared.attestKey(challenge: challenge) { attestation in
@@ -28,7 +28,9 @@ class AuthenticityManager {
                         self.persistenceManager.saveAttestation(attestation: attestation)
                         let url = URL(string: "https://appattest-demo.onrender.com/appattest")!;
                         let request = MultipartFormDataRequest(url: url)
-                        request.addTextField(named: "attestaion", value: attestation.base64EncodedString())
+                        request.addTextField(named: "attestation_string", value: attestation.base64EncodedString())
+                        request.addTextField(named: "raw_key_id", value: keyId)
+                        request.addTextField(named: "challenge", value: challenge.base64EncodedString())
                         URLSession.shared.dataTask(with: request, completionHandler: {data,response,error in
                             print("Callback...", String(describing: data))
                             if error != nil {
