@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 class ApiManager {
     
@@ -13,6 +14,7 @@ class ApiManager {
     
     struct Urls {
         static let SUBMIT_POST_URL: String = "https://appattest-demo.onrender.com/add"
+        static let GET_POSTS_URL: String = "https://appattest-demo.onrender.com/images"
     }
     
     private func sendPhotoToServer(_ image: Data, timestamp: String, signature: String, attestation: String, pubkey: String, latitude: String, longitude: String) {
@@ -89,5 +91,33 @@ class ApiManager {
         } else {
             print("Error: Signature data is nil")
         }
+    }
+    
+    func getPosts(modelContext: ModelContext) {
+        guard let url = URL(string: Urls.GET_POSTS_URL) else { return }
+        var request = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                do {
+                    print("Got response: \(String(data: data!, encoding: .utf8)!)")
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.dateDecodingStrategy = .millisecondsSince1970
+                    let decodedData = try jsonDecoder.decode(ServerDataCollection.self, from: data!)
+                    for obj in decodedData.post_data_objects {
+                      let post = Post(from: obj)
+                      modelContext.insert(post)
+                    }
+                } catch {
+                  print("DownloadError.wrongDataFormat(error: \(error))")
+                  return
+                }
+            } else {
+              print("DownloadError.missingData. Got: \(response!)")
+              return
+            }
+        }
+        task.resume()
+        
     }
 }

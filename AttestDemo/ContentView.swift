@@ -39,6 +39,8 @@ struct ContentView: View {
             }
         } detail: {
             Text("Select an item")
+        }.onAppear {
+            getItems()
         }
     }
 
@@ -47,6 +49,10 @@ struct ContentView: View {
             let newItem = Post.example
             modelContext.insert(newItem)
         }
+    }
+    
+    private func getItems() {
+        ApiManager.shared.getPosts(modelContext: modelContext)
     }
 
     private func deleteItems(offsets: IndexSet) {
