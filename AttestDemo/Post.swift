@@ -40,7 +40,7 @@ final class Post {
         timestamp: Date(),
         photoURL: "https://pbs.twimg.com/media/GMzC-4VaEAAEH01?format=jpg&name=medium",
         photoSig: "0x0000",
-        posterPk: "0xface",
+        posterPk: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
         posterAttestProof: "0x9999",
         locationLat: -17.34,
         locationLng: 34.043
