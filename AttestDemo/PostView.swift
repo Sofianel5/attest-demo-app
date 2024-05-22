@@ -14,6 +14,11 @@ struct PostView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
+            // concat poster pubkey
+            let prefixSubstring = post.posterPk.prefix(5)
+            let suffixSubstring = post.posterPk.suffix(3)
+            let poster = prefixSubstring + "..." + suffixSubstring
+            
             // User Info
             HStack {
                 AsyncImage(url: URL(string: post.photoURL)) { image in
@@ -26,7 +31,7 @@ struct PostView: View {
                         .frame(width: 40, height: 40)
                 }
 
-                Text(post.posterPk)
+                Text(poster)
                     .font(.headline)
                     .padding(.leading, 8)
                 Text(address)
