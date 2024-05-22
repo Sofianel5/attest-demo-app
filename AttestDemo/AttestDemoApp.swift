@@ -25,11 +25,6 @@ struct AttestDemoApp: App {
         }
     }()
     
-    func requestLocationPermission() {
-        let locationManager = CLLocationManager()
-        locationManager.requestWhenInUseAuthorization()
-    }
-    
     func requestCameraPermission() {
         AVCaptureDevice.requestAccess(for: .video) { granted in
             if granted {
@@ -41,7 +36,7 @@ struct AttestDemoApp: App {
     }
     
     func performSetupTasksIfNeeded() {
-        requestLocationPermission()
+        LocationManager.shared.setup()
         requestCameraPermission()
         AuthenticityManager.shared.setupIfNeeded()
     }

@@ -8,40 +8,17 @@
 import Foundation
 import CoreLocation
 
-protocol LocationManagerDelegate: AnyObject {
-    func didUpdateLocation(_ location: CLLocation)
-    func didFailWithError(_ error: Error)
-}
-
-class LocationManager: NSObject, CLLocationManagerDelegate {
+class LocationManager {
     static let shared = LocationManager()
 
     private let locationManager = CLLocationManager()
-    weak var delegate: LocationManagerDelegate?
 
-    private override init() {
-        super.init()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    func setup() {
         locationManager.requestWhenInUseAuthorization()
     }
-
-    func startUpdatingLocation() {
-        locationManager.startUpdatingLocation()
-    }
-
-    func stopUpdatingLocation() {
-        locationManager.stopUpdatingLocation()
-    }
-
-    // CLLocationManagerDelegate methods
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            delegate?.didUpdateLocation(location)
-        }
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        delegate?.didFailWithError(error)
+    
+    func getCurrentLocation() -> (Double, Double)? {
+        guard let locValue: CLLocationCoordinate2D = locationManager.location?.coordinate else { return nil }
+        return (locValue.latitude, locValue.longitude)
     }
 }
