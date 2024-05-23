@@ -50,7 +50,7 @@ struct PostView: View {
             .padding(.top, 8)
 
             // Post Content
-            Text(signature)
+            Text("Signature: \(signature)")
                 .font(.caption)
                 .padding([.horizontal, .bottom])
         }
@@ -104,21 +104,21 @@ struct PostView: View {
             }
             
             var addressString = ""
-            if let subThoroughfare = placemark.subThoroughfare {
-                addressString += subThoroughfare + " "
-            }
+//            if let subThoroughfare = placemark.subThoroughfare {
+//                addressString += subThoroughfare + " "
+//            }
             if let thoroughfare = placemark.thoroughfare {
                 addressString += thoroughfare + ", "
             }
             if let locality = placemark.locality {
-                addressString += locality + ", "
+                addressString += locality // + ", "
             }
-            if let administrativeArea = placemark.administrativeArea {
-                addressString += administrativeArea + " "
-            }
-            if let postalCode = placemark.postalCode {
-                addressString += postalCode
-            }
+//            if let administrativeArea = placemark.administrativeArea {
+//                addressString += administrativeArea + " "
+//            }
+//            if let postalCode = placemark.postalCode {
+//                addressString += postalCode
+//            }
             
             self.address = addressString.isEmpty ? "Address not found" : addressString
         }
