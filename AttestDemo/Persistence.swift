@@ -16,8 +16,8 @@ struct PersistenceController {
         defaults.set(attestation, forKey: "attestation")
     }
     
-    func getAttestation() {
-        defaults.data(forKey: "attestation")
+    func getAttestation() -> Data? {
+        return defaults.data(forKey: "attestation")
     }
     
     func saveKeyId(keyId: Data) {

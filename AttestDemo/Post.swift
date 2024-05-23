@@ -12,7 +12,7 @@ import Security
 @Model
 final class Post {
     var timestamp: Date
-    var photoURL: String
+    @Attribute(.unique) var photoURL: String
     var photoSig: String
     var posterPk: String
     var posterAttestProof: String
@@ -36,11 +36,29 @@ final class Post {
         self.locationLng = locationLng
     }
     
+    convenience init(from dataObject: ServerDataCollection.PostDataObject) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.date(from:dataObject.timestamp)!
+        
+        self.init(
+            timestamp: date,
+            photoURL: dataObject.photo_url,
+            photoSig: dataObject.photo_signature,
+            posterPk: dataObject.poster_pubkey,
+            posterAttestProof: dataObject.poster_attest_proof,
+            locationLat: Double(dataObject.location_lat)!,
+            locationLng: Double(dataObject.location_long)!
+        )
+    }
+    
     static let example = Post(
         timestamp: Date(),
         photoURL: "https://pbs.twimg.com/media/GMzC-4VaEAAEH01?format=jpg&name=medium",
         photoSig: "0x0000",
-        posterPk: "0xface",
+        posterPk: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
         posterAttestProof: "0x9999",
         locationLat: -17.34,
         locationLng: 34.043
@@ -71,5 +89,19 @@ final class Post {
             signature as CFData,
             nil
         )
+    }
+}
+
+struct ServerDataCollection: Decodable {
+    let post_data_objects: [PostDataObject]
+    
+    struct PostDataObject: Decodable {
+        let timestamp: String
+        let photo_url: String
+        let photo_signature: String
+        let poster_pubkey: String
+        let poster_attest_proof: String
+        let location_lat: String
+        let location_long: String
     }
 }

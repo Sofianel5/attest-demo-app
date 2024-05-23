@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		306ED23B2BFECEED00BD4384 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 306ED23A2BFECEED00BD4384 /* NotificationBannerSwift */; };
+		30790FB82BFCB2D4000E1D87 /* SecureEnclaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30790FB72BFCB2D4000E1D87 /* SecureEnclaveManager.swift */; };
+		30790FBC2BFD8255000E1D87 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30790FBB2BFD8255000E1D87 /* LocationManager.swift */; };
 		D807F9F82BFB33AE00F3FA48 /* FloatingCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9F72BFB33AE00F3FA48 /* FloatingCameraButton.swift */; };
 		D807F9FA2BFB345800F3FA48 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9F92BFB345800F3FA48 /* CameraView.swift */; };
 		D807F9FC2BFB3CBC00F3FA48 /* AppAttestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9FB2BFB3CBC00F3FA48 /* AppAttestManager.swift */; };
 		D807FA002BFB49B800F3FA48 /* AuthenticityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9FF2BFB49B800F3FA48 /* AuthenticityManager.swift */; };
 		D807FA022BFB4A0600F3FA48 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807FA012BFB4A0600F3FA48 /* Persistence.swift */; };
 		D807FA042BFB4B7500F3FA48 /* MultipartFormDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807FA032BFB4B7400F3FA48 /* MultipartFormDataRequest.swift */; };
-		D807FA062BFB4CCD00F3FA48 /* LocationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807FA052BFB4CCD00F3FA48 /* LocationServices.swift */; };
 		D87AD9112BFB261A00EB508D /* AttestDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87AD9102BFB261A00EB508D /* AttestDemoApp.swift */; };
 		D87AD9132BFB261A00EB508D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87AD9122BFB261A00EB508D /* ContentView.swift */; };
 		D87AD9152BFB261A00EB508D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87AD9142BFB261A00EB508D /* Post.swift */; };
@@ -21,9 +23,12 @@
 		D87AD91A2BFB261D00EB508D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87AD9192BFB261D00EB508D /* Preview Assets.xcassets */; };
 		D87AD9212BFB2C5800EB508D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87AD9202BFB2C5800EB508D /* PostView.swift */; };
 		D8DD580C2BFC841800001F3C /* JsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DD580B2BFC841800001F3C /* JsonRequest.swift */; };
+		D8DD580E2BFD9FF600001F3C /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DD580D2BFD9FF600001F3C /* ApiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30790FB72BFCB2D4000E1D87 /* SecureEnclaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureEnclaveManager.swift; sourceTree = "<group>"; };
+		30790FBB2BFD8255000E1D87 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		D807F9F72BFB33AE00F3FA48 /* FloatingCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingCameraButton.swift; sourceTree = "<group>"; };
 		D807F9F92BFB345800F3FA48 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		D807F9FB2BFB3CBC00F3FA48 /* AppAttestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttestManager.swift; sourceTree = "<group>"; };
@@ -32,7 +37,6 @@
 		D807F9FF2BFB49B800F3FA48 /* AuthenticityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticityManager.swift; sourceTree = "<group>"; };
 		D807FA012BFB4A0600F3FA48 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D807FA032BFB4B7400F3FA48 /* MultipartFormDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataRequest.swift; sourceTree = "<group>"; };
-		D807FA052BFB4CCD00F3FA48 /* LocationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServices.swift; sourceTree = "<group>"; };
 		D87AD90D2BFB261A00EB508D /* AttestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D87AD9102BFB261A00EB508D /* AttestDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestDemoApp.swift; sourceTree = "<group>"; };
 		D87AD9122BFB261A00EB508D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +45,7 @@
 		D87AD9192BFB261D00EB508D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D87AD9202BFB2C5800EB508D /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		D8DD580B2BFC841800001F3C /* JsonRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRequest.swift; sourceTree = "<group>"; };
+		D8DD580D2BFD9FF600001F3C /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				306ED23B2BFECEED00BD4384 /* NotificationBannerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +81,6 @@
 			children = (
 				D807F9FE2BFB3EB000F3FA48 /* Info.plist */,
 				D807F9FD2BFB3E0400F3FA48 /* AttestDemo.entitlements */,
-				D807FA052BFB4CCD00F3FA48 /* LocationServices.swift */,
 				D87AD9102BFB261A00EB508D /* AttestDemoApp.swift */,
 				D807F9FB2BFB3CBC00F3FA48 /* AppAttestManager.swift */,
 				D807FA012BFB4A0600F3FA48 /* Persistence.swift */,
@@ -84,7 +89,10 @@
 				D8DD580B2BFC841800001F3C /* JsonRequest.swift */,
 				D87AD9122BFB261A00EB508D /* ContentView.swift */,
 				D807F9F92BFB345800F3FA48 /* CameraView.swift */,
+				D8DD580D2BFD9FF600001F3C /* ApiManager.swift */,
 				D807F9F72BFB33AE00F3FA48 /* FloatingCameraButton.swift */,
+				30790FB72BFCB2D4000E1D87 /* SecureEnclaveManager.swift */,
+				30790FBB2BFD8255000E1D87 /* LocationManager.swift */,
 				D87AD9202BFB2C5800EB508D /* PostView.swift */,
 				D87AD9142BFB261A00EB508D /* Post.swift */,
 				D87AD9162BFB261D00EB508D /* Assets.xcassets */,
@@ -117,6 +125,9 @@
 			dependencies = (
 			);
 			name = AttestDemo;
+			packageProductDependencies = (
+				306ED23A2BFECEED00BD4384 /* NotificationBannerSwift */,
+			);
 			productName = AttestDemo;
 			productReference = D87AD90D2BFB261A00EB508D /* AttestDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -145,6 +156,9 @@
 				Base,
 			);
 			mainGroup = D87AD9042BFB261A00EB508D;
+			packageReferences = (
+				306ED2392BFECEED00BD4384 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
+			);
 			productRefGroup = D87AD90E2BFB261A00EB508D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -171,15 +185,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D807FA062BFB4CCD00F3FA48 /* LocationServices.swift in Sources */,
 				D807FA022BFB4A0600F3FA48 /* Persistence.swift in Sources */,
+				30790FB82BFCB2D4000E1D87 /* SecureEnclaveManager.swift in Sources */,
 				D807F9F82BFB33AE00F3FA48 /* FloatingCameraButton.swift in Sources */,
 				D87AD9132BFB261A00EB508D /* ContentView.swift in Sources */,
 				D807FA002BFB49B800F3FA48 /* AuthenticityManager.swift in Sources */,
 				D87AD9152BFB261A00EB508D /* Post.swift in Sources */,
+				D8DD580E2BFD9FF600001F3C /* ApiManager.swift in Sources */,
 				D807F9FA2BFB345800F3FA48 /* CameraView.swift in Sources */,
 				D807FA042BFB4B7500F3FA48 /* MultipartFormDataRequest.swift in Sources */,
 				D87AD9212BFB2C5800EB508D /* PostView.swift in Sources */,
+				30790FBC2BFD8255000E1D87 /* LocationManager.swift in Sources */,
 				D807F9FC2BFB3CBC00F3FA48 /* AppAttestManager.swift in Sources */,
 				D87AD9112BFB261A00EB508D /* AttestDemoApp.swift in Sources */,
 				D8DD580C2BFC841800001F3C /* JsonRequest.swift in Sources */,
@@ -408,6 +424,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		306ED2392BFECEED00BD4384 /* XCRemoteSwiftPackageReference "NotificationBanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Daltron/NotificationBanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		306ED23A2BFECEED00BD4384 /* NotificationBannerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 306ED2392BFECEED00BD4384 /* XCRemoteSwiftPackageReference "NotificationBanner" */;
+			productName = NotificationBannerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D87AD9052BFB261A00EB508D /* Project object */;
 }

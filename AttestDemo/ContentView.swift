@@ -23,22 +23,24 @@ struct ContentView: View {
                     .onDelete(perform: deleteItems)
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
+//            .toolbar {
+//                ToolbarItem (placement: .navigationBarTrailing) {
+//                    Button(action: addItem) {
+//                        Label("Add Item", systemImage: "plus")
+//                    }
+//                }
+//            }
             .floatingButton(showCameraView: $showCameraView)
             .fullScreenCover(isPresented: $showCameraView) {
                 FullScreenCameraView()
             }
         } detail: {
             Text("Select an item")
+        }.onAppear {
+            getItems()
+        }.refreshable {
+//            await refreshData();
+            getItems()
         }
     }
 
@@ -47,6 +49,10 @@ struct ContentView: View {
             let newItem = Post.example
             modelContext.insert(newItem)
         }
+    }
+    
+    private func getItems() {
+        ApiManager.shared.getPosts(modelContext: modelContext)
     }
 
     private func deleteItems(offsets: IndexSet) {

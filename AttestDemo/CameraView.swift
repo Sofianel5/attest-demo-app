@@ -5,6 +5,7 @@
 //  Created by Sofiane Larbi on 5/20/24.
 //
 
+import CoreLocation
 import SwiftUI
 import AVFoundation
 
@@ -12,6 +13,9 @@ class CameraViewController: UIViewController {
     var captureSession: AVCaptureSession?
     var photoOutput: AVCapturePhotoOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
+    
+    var currentLocation: CLLocation?
+    
     var onPhotoCaptured: ((Data) -> Void)?
     
     override func viewDidLoad() {
@@ -60,9 +64,15 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard let imageData = photo.fileDataRepresentation() else { return }
         print("Photo captured")
-        onPhotoCaptured?(imageData)
+        
+        // Convert image data to image
+        guard let image = UIImage(data: imageData) else { return }
+        if let jpegData = image.jpegData(compressionQuality: 0.5) {
+            onPhotoCaptured?(jpegData)
+        }
     }
 }
+
 
 struct CameraView: UIViewControllerRepresentable {
     class Coordinator: NSObject {
@@ -81,7 +91,7 @@ struct CameraView: UIViewControllerRepresentable {
     var cameraViewController: CameraViewController
     var onPhotoCaptured: ((Data) -> Void)
     
-    init(cameraViewController: CameraViewController, onPhotoCaptured: @escaping ( (Data) -> Void)) {
+    init(cameraViewController: CameraViewController, onPhotoCaptured: @escaping ((Data) -> Void)) {
         self.cameraViewController = cameraViewController
         self.onPhotoCaptured = onPhotoCaptured
     }
@@ -105,39 +115,10 @@ struct FullScreenCameraView: View {
     @Environment(\.presentationMode) var presentationMode
     let cameraViewController = CameraViewController()
     
-    func sendPhotoToServer(_ image: Data) {
-        // Your code to send the image to the server
-        // For example, using URLSession to send a POST request with the image data
-        print("Sending photo to server...")
-
-        guard let url = URL(string: "https://appattest-demo.onrender.com/upload") else { return }
-        let request = MultipartFormDataRequest(url: url)
-        request.addDataField(
-            named: "image",
-            data: image,
-            mimeType: "img/jpeg"
-        )
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Error uploading photo: \(error)")
-                presentationMode.wrappedValue.dismiss()
-                return
-            }
-            if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                print("Photo uploaded successfully!")
-                DispatchQueue.main.async {
-                    presentationMode.wrappedValue.dismiss()
-                }
-            }
-        }
-
-        task.resume()
-    }
-    
     var body: some View {
         ZStack {
             CameraView(cameraViewController: cameraViewController, onPhotoCaptured: {
-                image in sendPhotoToServer(image)
+                image in ApiManager.shared.submitPhoto(jpegData: image)
             })
             .edgesIgnoringSafeArea(.all)
             
