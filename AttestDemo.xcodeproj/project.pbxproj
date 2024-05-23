@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		306ED23B2BFECEED00BD4384 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 306ED23A2BFECEED00BD4384 /* NotificationBannerSwift */; };
 		30790FB82BFCB2D4000E1D87 /* SecureEnclaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30790FB72BFCB2D4000E1D87 /* SecureEnclaveManager.swift */; };
 		30790FBC2BFD8255000E1D87 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30790FBB2BFD8255000E1D87 /* LocationManager.swift */; };
 		D807F9F82BFB33AE00F3FA48 /* FloatingCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9F72BFB33AE00F3FA48 /* FloatingCameraButton.swift */; };
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				306ED23B2BFECEED00BD4384 /* NotificationBannerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +125,9 @@
 			dependencies = (
 			);
 			name = AttestDemo;
+			packageProductDependencies = (
+				306ED23A2BFECEED00BD4384 /* NotificationBannerSwift */,
+			);
 			productName = AttestDemo;
 			productReference = D87AD90D2BFB261A00EB508D /* AttestDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +156,9 @@
 				Base,
 			);
 			mainGroup = D87AD9042BFB261A00EB508D;
+			packageReferences = (
+				306ED2392BFECEED00BD4384 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
+			);
 			productRefGroup = D87AD90E2BFB261A00EB508D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -416,6 +424,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		306ED2392BFECEED00BD4384 /* XCRemoteSwiftPackageReference "NotificationBanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Daltron/NotificationBanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		306ED23A2BFECEED00BD4384 /* NotificationBannerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 306ED2392BFECEED00BD4384 /* XCRemoteSwiftPackageReference "NotificationBanner" */;
+			productName = NotificationBannerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D87AD9052BFB261A00EB508D /* Project object */;
 }

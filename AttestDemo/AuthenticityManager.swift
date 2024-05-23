@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NotificationBannerSwift
 
 class AuthenticityManager {
     
@@ -28,13 +29,20 @@ class AuthenticityManager {
                         self.persistenceManager.saveAttestation(attestation: attestation)
                         let url = URL(string: "https://appattest-demo.onrender.com/appattest")!;
                         let request = MultipartFormDataRequest(url: url)
-                        request.addTextField(named: "attestaion", value: attestation.base64EncodedString())
+                        request.addTextField(named: "attestation_string", value: attestation.base64EncodedString())
+                        request.addTextField(named: "raw_key_id", value: keyId)
+                        let challenge_string = String(data: challenge, encoding: .utf8)!
+                        print("Challenge received: \(challenge_string)")
+                        request.addTextField(named: "challenge", value: challenge_string)
                         URLSession.shared.dataTask(with: request, completionHandler: {data,response,error in
                             print("Callback...", String(describing: data))
                             if error != nil {
                                 print("Error!")
                                 return
                             }
+                            // TODO: do this on UI side otherwise everything crashes?
+//                            let banner = NotificationBanner(title: "App Attested!", subtitle: "Your app has been attested as authentic.", style: .success)
+//                            banner.show()
                             PersistenceController.shared.setAttested()
                         }).resume()
                     }
