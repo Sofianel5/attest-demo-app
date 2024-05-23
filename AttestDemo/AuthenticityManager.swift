@@ -19,7 +19,7 @@ class AuthenticityManager {
         AppAttestManager.shared.keyGen() {keyId in
             print("Got keyId: \(keyId)")
             let url = URL(string: "https://appattest-demo.onrender.com/challenge")!;
-            var request = URLRequest(url: url)
+            let request = URLRequest(url: url)
             let task = URLSession.shared.dataTask(with: request) {data,response,error in
                 if let challenge = data {
                     print("Got challenge: \(challenge)")
