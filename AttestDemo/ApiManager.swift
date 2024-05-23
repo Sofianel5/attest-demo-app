@@ -95,7 +95,7 @@ class ApiManager {
     
     func getPosts(modelContext: ModelContext) {
         guard let url = URL(string: Urls.GET_POSTS_URL) else { return }
-        var request = URLRequest(url: url)
+        let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
@@ -104,9 +104,14 @@ class ApiManager {
                     let jsonDecoder = JSONDecoder()
                     jsonDecoder.dateDecodingStrategy = .millisecondsSince1970
                     let decodedData = try jsonDecoder.decode(ServerDataCollection.self, from: data!)
+                    
+                    // Check that there are no duplicate posts being added
+//                    let fetchRequest: NSFetchRequest<Post> = Post.fetchRequest()
+//                    let existingPosts = try modelContext.fetch(fetchRequest)
+//                    let existingPostIds = Set(existingPosts.map { $0.id })
+
                     for obj in decodedData.post_data_objects {
                       let post = Post(from: obj)
-                        
                       modelContext.insert(post)
                     }
                 } catch {
@@ -121,4 +126,7 @@ class ApiManager {
         task.resume()
         
     }
+
 }
+
+

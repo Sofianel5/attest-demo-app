@@ -23,16 +23,13 @@ struct ContentView: View {
                     .onDelete(perform: deleteItems)
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
+//            .toolbar {
+//                ToolbarItem (placement: .navigationBarTrailing) {
+//                    Button(action: addItem) {
+//                        Label("Add Item", systemImage: "plus")
+//                    }
+//                }
+//            }
             .floatingButton(showCameraView: $showCameraView)
             .fullScreenCover(isPresented: $showCameraView) {
                 FullScreenCameraView()
@@ -40,6 +37,9 @@ struct ContentView: View {
         } detail: {
             Text("Select an item")
         }.onAppear {
+            getItems()
+        }.refreshable {
+//            await refreshData();
             getItems()
         }
     }
