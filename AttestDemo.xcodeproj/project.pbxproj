@@ -337,7 +337,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AttestDemo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Honto;
+				INFOPLIST_KEY_CFBundleDisplayName = Postcard;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Gotta use the camera to take pics!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -376,7 +376,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AttestDemo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Honto;
+				INFOPLIST_KEY_CFBundleDisplayName = Postcard;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Gotta use the camera to take pics!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
