@@ -13,7 +13,7 @@ struct PostView: View {
     @State private var address: String = "Loading address..."
     @State private var pubkey: String = "Loading pubkey.."
     @State private var signature: String = "Loading sig..."
-
+    
     var body: some View {
         VStack(alignment: .leading) {
                                         
@@ -51,6 +51,9 @@ struct PostView: View {
 
             // Post Content
             Text("Signature: \(signature)")
+                .font(.caption)
+                .padding([.horizontal, .bottom])
+            Text(post.timestamp)
                 .font(.caption)
                 .padding([.horizontal, .bottom])
         }
