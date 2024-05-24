@@ -43,9 +43,6 @@ class AuthenticityManager {
                                 print("Error!")
                                 return
                             }
-                            // TODO: do this on UI side otherwise everything crashes?
-//                            let banner = NotificationBanner(title: "App Attested!", subtitle: "Your app has been attested as authentic.", style: .success)
-//                            banner.show()
                             PersistenceController.shared.setAttested()
                         }).resume()
                     }
