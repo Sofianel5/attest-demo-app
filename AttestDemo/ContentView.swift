@@ -7,9 +7,11 @@
 
 import SwiftUI
 import SwiftData
+import NotificationBannerSwift
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    private let persistenceManager = PersistenceController.shared;
     @Query private var items: [Post]
     @State private var showCameraView = false
 
@@ -23,13 +25,13 @@ struct ContentView: View {
                     .onDelete(perform: deleteItems)
                 }
             }
-//            .toolbar {
-//                ToolbarItem (placement: .navigationBarTrailing) {
-//                    Button(action: addItem) {
-//                        Label("Add Item", systemImage: "plus")
-//                    }
-//                }
-//            }
+            .toolbar {
+                ToolbarItem (placement: .navigationBarTrailing) {
+                    Button(action: checkAttestation) {
+                        Text("Check Attestation")
+                    }
+                }
+            }
             .floatingButton(showCameraView: $showCameraView)
             .fullScreenCover(isPresented: $showCameraView) {
                 FullScreenCameraView()
@@ -44,10 +46,11 @@ struct ContentView: View {
         }
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Post.example
-            modelContext.insert(newItem)
+    private func checkAttestation() {
+        if (persistenceManager.isAttested()) {
+            let subtitle = "Attested with attestation: " + (persistenceManager.getChallenge() ?? "");
+            let banner = NotificationBanner(title: "Your app instance is attested!", subtitle: subtitle, style: .success)
+            banner.show()
         }
     }
     

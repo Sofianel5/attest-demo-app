@@ -27,12 +27,15 @@ class AuthenticityManager {
                     AppAttestManager.shared.attestKey(challenge: challenge) { attestation in
                         print("Got attestation: \(attestation)")
                         self.persistenceManager.saveAttestation(attestation: attestation)
+                        // save challenge
+                        let challenge_string = String(data: challenge, encoding: .utf8)!
+                        self.persistenceManager.saveChallenge(challenge: challenge_string)
+                        print("Challenge received: \(challenge_string)")
+                        
                         let url = URL(string: "https://appattest-demo.onrender.com/appattest")!;
                         let request = MultipartFormDataRequest(url: url)
                         request.addTextField(named: "attestation_string", value: attestation.base64EncodedString())
                         request.addTextField(named: "raw_key_id", value: keyId)
-                        let challenge_string = String(data: challenge, encoding: .utf8)!
-                        print("Challenge received: \(challenge_string)")
                         request.addTextField(named: "challenge", value: challenge_string)
                         URLSession.shared.dataTask(with: request, completionHandler: {data,response,error in
                             print("Callback...", String(describing: data))

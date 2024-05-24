@@ -11,7 +11,7 @@ import Security
 
 @Model
 final class Post {
-    var timestamp: Date
+    var timestamp: String
     @Attribute(.unique) var photoURL: String
     var photoSig: String
     var posterPk: String
@@ -19,7 +19,7 @@ final class Post {
     var locationLat: Double
     var locationLng: Double
     
-    init(timestamp: Date,
+    init(timestamp: String,
          photoURL: String,
          photoSig: String,
          posterPk: String,
@@ -38,13 +38,13 @@ final class Post {
     
     convenience init(from dataObject: ServerDataCollection.PostDataObject) {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormatter.date(from:dataObject.timestamp)!
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        let date = dateFormatter.date(from:dataObject.timestamp)!
         
         self.init(
-            timestamp: date,
+            timestamp: dataObject.timestamp,
             photoURL: dataObject.photo_url,
             photoSig: dataObject.photo_signature,
             posterPk: dataObject.poster_pubkey,
@@ -55,7 +55,7 @@ final class Post {
     }
     
     static let example = Post(
-        timestamp: Date(),
+        timestamp: "2024-05-22 21:37:49",
         photoURL: "https://pbs.twimg.com/media/GMzC-4VaEAAEH01?format=jpg&name=medium",
         photoSig: "0x0000",
         posterPk: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",

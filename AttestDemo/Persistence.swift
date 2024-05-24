@@ -31,4 +31,12 @@ struct PersistenceController {
     func isAttested() -> Bool {
         return defaults.bool(forKey: "attested")
     }
+    
+    func saveChallenge(challenge: String) {
+        defaults.set(challenge, forKey: "challenge")
+    }
+    
+    func getChallenge() -> String? {
+        return defaults.string(forKey: "challenge")
+    }
 }
