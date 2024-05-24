@@ -8,6 +8,7 @@
 import CoreLocation
 import SwiftUI
 import AVFoundation
+import NotificationBannerSwift
 
 class CameraViewController: UIViewController {
     var captureSession: AVCaptureSession?
@@ -146,6 +147,10 @@ struct FullScreenCameraView: View {
                 Button(action: {
                     // Handle photo taking action
                     cameraViewController.takePhoto()
+                    
+                    // Show user
+                    let banner = NotificationBanner(title: "You made a Postcard!", subtitle: "Your signed image + location has been uploaded.", style: .success)
+                    banner.show()
                     
                 }) {
                     Circle()
